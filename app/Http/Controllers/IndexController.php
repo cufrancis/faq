@@ -63,7 +63,7 @@ class IndexController extends Controller
       // $question = Question::where('id', '=', $request->id);
       $question = Question::find($request->id);
       // $question = Question::all();
-      // dd($question);
+      dd($question);
       return view(config('web.theme').'show', compact('question'));
       // var_dump($question);
     }

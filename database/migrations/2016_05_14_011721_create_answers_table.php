@@ -17,7 +17,7 @@ class CreateAnswersTable extends Migration
             $table->longText('content');
             $table->integer('qid'); // 回答的问题id
             $table->integer('uid'); // 回答者id
-            $table->integer('isGood')->default(0); // 是否采纳,0 否，1是
+            // $table->integer('isGood')->default(0); // 是否采纳,0 否，1是
             $table->integer('up')->default(0);  // 上级评论id
             $table->timestamps();
         });

@@ -157,7 +157,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         Stevenyangecho\UEditor\UEditorServiceProvider::class,
-        Illuminate\Html\HtmlServiceProvider::class,
+        // Illuminate\Html\HtmlServiceProvider::class,
 
     ],
 
@@ -205,7 +205,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
-        'Form'  =>  Illuminate\Html\FormFacade::class,
+        // 'Form'  =>  Illuminate\Html\FormFacade::class,
 
     ],
 

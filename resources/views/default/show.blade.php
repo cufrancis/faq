@@ -16,6 +16,14 @@
                       {{ $question->content }}
                   </div>
               </div>
+
+              {{-- @if() --}}
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  我来回答
+                </div>
+              </div>
+
               <button class="btn btn-primary" onclick="history.go(-1)">
                 << Back
           </div>

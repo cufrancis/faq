@@ -19,6 +19,7 @@ class CreateQuestionsTable extends Migration
             $table->longText('content');
             $table->bigInteger('money')->default(0);
             $table->integer('type')->default(0); // 问题分类
+            $table->integer('adoption')->default(0)->index(); // 采纳问题
             // $table->integer('type');
             $table->timestamps();
         });
