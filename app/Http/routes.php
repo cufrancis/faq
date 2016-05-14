@@ -24,3 +24,5 @@ Route::get('/', 'IndexController@index');
 Route::get('/show/{id}', 'IndexController@show');
 
 Route::get('/type/{id}', 'TypeController@show');
+
+Route::post('/answer/store/{id?}', 'AnswerController@store');

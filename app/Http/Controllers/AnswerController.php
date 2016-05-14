@@ -5,12 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use App\Question;
-use App\Type;
+use App\Http\Requests\AnswerCreateRequest;
+use Auth;
+use App\Answer;
 
-use Carbon\Carbon;
-
-class IndexController extends Controller
+class AnswerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,16 +18,7 @@ class IndexController extends Controller
      */
     public function index()
     {
-        $questions = Question::where('created_at', '<=', Carbon::now())
-                      ->orderBy('created_at', 'desc')
-                      ->paginate(config('web.posts_per_page'));
-        // $mod_types = new Type();
-        $types = Type::where('up', '=', 0)->get();
-        // $types = Type::all();
-        // dd($types);
-        // echo config("web.theme").'index';
-        return view(config("web.theme").'index', ['questions' =>  $questions,
-                                                  'types'     =>  $types]);
+        //
     }
 
     /**
@@ -47,9 +37,16 @@ class IndexController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AnswerCreateRequest $request)
     {
-        //
+      $answer = new Answer;
+      $answer['qid']  =  $request->id;
+      $answer['uid']  =  Auth::user()->id;
+      $answer['content']  =  $request->content;
+
+      $answer->save();
+      return redirect("/show/$request->id")->withSuccess('The Answer is was created');
+
     }
 
     /**
@@ -58,14 +55,9 @@ class IndexController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request)
+    public function show($id)
     {
-      // $question = Question::where('id', '=', $request->id);
-      $question = Question::find($request->id);
-      // $question = Question::all();
-      // dd($question->id);
-      return view(config('web.theme').'show', compact('question'));
-      // var_dump($question);
+        //
     }
 
     /**
