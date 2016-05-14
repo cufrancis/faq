@@ -27,6 +27,7 @@ $factory->define(App\Question::class, function (Faker\Generator $faker) {
     'title' =>  $faker->title,
     'content' =>  $faker->text .'?',
     'money'   =>  0,
+    'type'    =>  $faker->numberBetween($min = 0, $max = 2),
   ];
 });
 

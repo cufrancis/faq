@@ -5,7 +5,12 @@
       <div class="row">
           <div class="col-md-10 col-md-offset-1">
               <div class="panel panel-default">
-                  <div class="panel-heading">{{ $question->title }} <em></em></div>
+                  <div class="panel-heading">{{ $question->title }} |<em> Type:@if($question->typeInfo != NULL)
+                    {{ $question->typeInfo->name }}
+                  @else
+                    未分类
+                  @endif
+                </em></div>
 
                   <div class="panel-body">
                       {{ $question->content }}
