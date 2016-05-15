@@ -21,6 +21,14 @@ class QuestionController extends Controller
         //
     }
 
+    public function adoption(Request $request) {
+      $question = Question::find($request->qid);
+      $question['adoption'] = $request->aid;
+      $question->save();
+      // dd($request->aid);
+      return redirect('show/'.$request->qid)->withSuccess('Adoption success');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

@@ -21,7 +21,7 @@
                 </em></div>
 
                   <div class="panel-body">
-                      {{ $question->content }}
+                      {!! $question->content !!}
                   </div>
               </div>
               @if($question->adoption == 0 && $question->uid != Auth::user()->id)
@@ -31,9 +31,18 @@
               @endif
 
               {{-- 显示答案 --}}
+              {{-- {{ dd($question->adoption) }} --}}
               @foreach($answers as $answer)
                 <div class="panel panel-default">
-                  <div class="panel-heading"><a href='{{ url('/user', ['id' =>  $answer->hasOneUser->id]) }}'>{{ $answer->hasOneUser->name }}</a>|@if($question->uid == Auth::user()->id)<em><a href="{{ url("/question/adoption/$answer->id") }}">采纳为最佳答案</a></em>@endif</div>
+                  <div class="panel-heading"><a href='{{ url('/user', ['id' =>  $answer->hasOneUser->id]) }}'>{{ $answer->hasOneUser->name }}</a>
+                    @if($question->uid == Auth::user()->id)
+                      @if( $question->adoption == 0)
+                        <em>|<a href="{{ url('/question/adoption', ['qid' => $question->id, 'aid'  =>  $answer->id]) }}">采纳为最佳答案</a></em>
+                      @else
+                        <h1>最佳答案</h1>
+                      @endif
+                    @endif
+                  </div>
                   <div class="panel-body">{!! $answer->content !!}</div>
 
                 </div>

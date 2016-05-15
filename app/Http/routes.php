@@ -34,3 +34,4 @@ Route::get('/user/{id}', 'UserController@index');
 // 提问
 Route::get('/question/ask', 'QuestionController@ask');
 Route::post('/question/ask', 'QuestionController@store');
+Route::get('/question/adoption/{qid}/{aid}', 'QuestionController@adoption'); // 采纳
