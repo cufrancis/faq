@@ -45,8 +45,17 @@
                   </div>
                 </div>
               @else
-                这里显示被采纳答案
+                这里显示被采纳答案 和其他答案
               @endif
+              {{-- 显示答案 --}}
+              @foreach($answers as $answer)
+                <div class="panel panel-default">
+                  <div class="panel-heading"><a href='{{ url('/user', ['id' =>  $answer->hasOneUser->id]) }}'>{{ $answer->hasOneUser->name }}</a></div>
+                  <div class="panel-body">{!! $answer->content !!}</div>
+
+                </div>
+              @endforeach
+
 
               <button class="btn btn-primary" onclick="history.go(-1)">
                 << Back
