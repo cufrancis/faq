@@ -21,6 +21,8 @@ Route::auth();
 Route::get('/home', 'HomeController@index');
 
 Route::get('/', 'IndexController@index');
+Route::get('/index'.'IndexController@index');
+
 Route::get('/show/{id}', 'IndexController@show');
 
 Route::get('/type/{id}', 'TypeController@show');

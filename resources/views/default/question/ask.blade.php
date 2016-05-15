@@ -32,6 +32,22 @@
                             </div>
                         </div>
 
+                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                            <label class="col-md-4 control-label">悬赏金额</label>
+
+                            <div class="col-md-6">
+                                <input type="number" class="form-control" name="money" value="0">
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                            <label class="col-md-4 control-label">分类</label>
+
+                            <div class="col-md-6">
+                                <input type="number" class="form-control" name="type" value="1">
+                            </div>
+                        </div>
+
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label class="col-md-4 control-label">问题补充（选填）</label>
 

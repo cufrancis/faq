@@ -51,8 +51,10 @@ class QuestionController extends Controller
       $question['type']   = $request->type; // 问题分类
 
       $question->save();
+      // dd($question->id);
 
-      return view("/show/$request->id")->withSuccess('The ask was Created!');
+      // return view(config('web.theme')."show/$question->id")->withSuccess('The ask was Created!');
+      return redirect("/")->withSuccess('The ask was Created!');
         // dd($request->title);
     }
 
