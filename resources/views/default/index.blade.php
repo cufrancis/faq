@@ -4,6 +4,7 @@
 
 
 <div class="container">
+  <a href="{{ url('/question/ask') }}">我要提问</a>
   <ul>
     @foreach($types as $type)
       <li><a href="{{ url("type/$type->id") }}">{{ $type->name }}</a></li>

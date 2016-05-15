@@ -16,7 +16,7 @@ class CreateQuestionsTable extends Migration
             $table->increments('id');
             $table->integer('uid'); // 提问者id
             $table->string('title');
-            $table->longText('content');
+            $table->longText('content')->nullable()->default(NULL);
             $table->bigInteger('money')->default(0);
             $table->integer('type')->default(0); // 问题分类
             $table->integer('adoption')->default(0)->index(); // 采纳问题
