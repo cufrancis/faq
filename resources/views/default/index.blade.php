@@ -27,5 +27,4 @@
   {!! $questions->render() !!}
 </div>
 
-
 @endsection

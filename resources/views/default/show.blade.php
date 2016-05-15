@@ -39,7 +39,9 @@
                       @if( $question->adoption == 0)
                         <em>|<a href="{{ url('/question/adoption', ['qid' => $question->id, 'aid'  =>  $answer->id]) }}">采纳为最佳答案</a></em>
                       @else
+                        @if($question->adoption == $answer->id)
                         <h1>最佳答案</h1>
+                        @endif
                       @endif
                     @endif
                   </div>
