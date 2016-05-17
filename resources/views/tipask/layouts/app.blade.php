@@ -3,10 +3,11 @@
     <!--{eval global $starttime,$querynum;$mtime = explode(' ', microtime());$runtime=number_format($mtime[1] + $mtime[0] - $starttime,6); $setting=$this->setting;$user=$this->user;$headernavlist=$this->nav;$regular=$this->regular;$toolbars="'".str_replace(",", "','", $setting['editor_toolbars'])."'";}-->
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset={TIPASK_CHARSET}"/>
-        <!--{if isset($seo_title)}-->
-        <title>{$seo_title}</title>
-        <!--{else}-->
-        <title><!--{if $navtitle}-->{$navtitle} - <!--{/if}-->{$setting['site_name']}</title>
+        @if($setting['seo_title'] != '')
+        <title>{{ $setting('seo_title') }}</title>
+        @else
+        <title><!--{if $navtitle}-->{$navtitle} - <!--{/if}-->{{ $setting['site_name'] }}</title>
+        @endif
         <!--{/if}-->
         <!--{if isset($seo_description)}-->
         <meta name="description" content="{eval echo cutstr($seo_description,160,'')}" />
