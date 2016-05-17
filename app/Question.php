@@ -8,7 +8,7 @@ class question extends Model
 {
 
   public function typeInfo() {
-    return $this->hasOne('App\Type', 'id', 'type')->select('name');
+    return $this->hasOne('App\Category', 'id', 'type')->select('name');
   }
 
 }

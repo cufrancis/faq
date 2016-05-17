@@ -24,10 +24,14 @@
                       {!! $question->content !!}
                   </div>
               </div>
-              @if($question->adoption == 0 && $question->uid != Auth::user()->id)
-                @include(config('web.theme').'question/guest')
+              @if(Auth::guest())
+                登陆后回答<br /><br />
               @else
-                @include(config('web.theme').'question/author')
+                @if($question->adoption == 0 && $question->uid != Auth::user()->id)
+                  @include(config('web.theme').'question/guest')
+                @else
+                  @include(config('web.theme').'question/author')
+                @endif
               @endif
 
               {{-- 显示答案 --}}

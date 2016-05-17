@@ -25,7 +25,7 @@ Route::get('/index'.'IndexController@index');
 
 Route::get('/show/{id}', 'IndexController@show');
 
-Route::get('/type/{id}', 'TypeController@show');
+Route::get('/category/{id}', 'CategoryController@show');
 
 Route::post('/answer/store/{id?}', 'AnswerController@store');
 

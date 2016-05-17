@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Question;
-use App\Type;
+use App\Category;
 use App\Answer;
 
 use Carbon\Carbon;
@@ -24,12 +24,13 @@ class IndexController extends Controller
                       ->orderBy('created_at', 'desc')
                       ->paginate(config('web.posts_per_page'));
         // $mod_types = new Type();
-        $types = Type::where('up', '=', 0)->get();
+        $categories = Category::where('pid', '=', 0)->get();
         // $types = Type::all();
         // dd($types);
         // echo config("web.theme").'index';
+
         return view(config("web.theme").'index', ['questions' =>  $questions,
-                                                  'types'     =>  $types]);
+                                                  'categories'     =>  $categories]);
     }
 
     /**
